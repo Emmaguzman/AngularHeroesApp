@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="card-columns animated fadeIn">
-    <app-heroe-tarjeta [heroe]="heroe" [idx]="i" *ngFor="let heroe of heroes;let i=index"></app-heroe-tarjeta>
+    <app-heroe-tarjeta (heroeSeleccionado)="verHeroe($event)" [heroe]="heroe" [idx]="heroe.idx" *ngFor="let heroe of heroes"></app-heroe-tarjeta>
 </div>
 
 <!--    <div class="card" *ngFor="let heroe of heroes;let i=index">

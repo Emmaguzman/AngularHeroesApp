@@ -69,16 +69,24 @@ export class HeroesService {
     public buscarHeroe(termino:string):Heroe[]{
         let heroesArr:Heroe[]=[];
         termino=termino.toLowerCase();
-        for (let heroe of this.heroes) {
-            let nombre=heroe.nombre.toLowerCase();
+        // for (let heroe of this.heroes) {
+        //     let nombre=heroe.nombre.toLowerCase();
+        //     if(nombre.indexOf(termino)>=0){
+        //         heroesArr.push(heroe);
+        // }
+        for (let i = 0; i < this.heroes.length; i++) {
+           let heroe=this.heroes[i];
+           let nombre=heroe.nombre.toLowerCase();
             if(nombre.indexOf(termino)>=0){
-                heroesArr.push(heroe);
+                 heroe.idx=i;
+                  heroesArr.push(heroe);
         }
     }
     return heroesArr
 }
 }
 export interface Heroe {
+    idx?:number;
     nombre:string;
     bio:string;
     img:string;
